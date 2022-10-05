@@ -1,0 +1,23 @@
+mixin summary(id, title, sample=[1,2])
+    .summary(id= id)
+        h3
+            .crumb 
+                .in
+            =`${title}`
+        .items 
+            each i in sample
+                .item= i
+        button بستن
+
+
+
+mixin comment(user, text, id, who, reply, isSample=false)
+    -let cl = who=='o'?'others':'';
+    - cl += isSample?'sample':'';
+    div(class=cl, id=id)
+        .icon(data-user=user)
+        span(data-time="12:45 am")
+            .txt=text
+            i.fas.fa-reply
+            if (reply)
+                a(href=`#${reply.id}`)= reply.name

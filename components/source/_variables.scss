@@ -1,0 +1,81 @@
+:root {
+    --white: white;
+}
+
+$orientation: screen;
+$screen: 1200px;
+$laptop: 992px;
+$tablet: 698px;
+$mobile: 480px;
+
+@function orientation() {
+    @if ($orientation =='screen') {
+        @return 'max-width';
+    }
+
+    @if ($orientation =='mobile') {
+        @return 'min-width';
+    }
+}
+
+@mixin media($arg) {
+    @media (orientation(): $arg) {
+        @content;
+    }
+}
+
+@mixin flex($just, $align, $dir: row, $gap: 0) {
+    display: flex;
+
+    @if $just ==c {
+        $just: center;
+    }
+
+    @if $just ==s {
+        $just: flex-start;
+    }
+
+    @if $just ==e {
+        $just: flex-end;
+    }
+
+    @if $just ==sa {
+        $just: space-around;
+    }
+
+    @if $just ==sb {
+        $just: space-between;
+    }
+
+    @if $just ==se {
+        $just: space-evenly;
+    }
+
+    @if $align ==c {
+        $align: center;
+    }
+
+    @if $align ==s {
+        $align: flex-start;
+    }
+
+    @if $align ==e {
+        $align: flex-end;
+    }
+
+    justify-content: $just;
+    align-items: $align;
+    flex-direction: $dir;
+    gap: $gap;
+}
+
+@mixin box($item) {
+    $wid: --wid;
+    #{$wid}: $item;
+    width: var(--wid);
+    height: var(--wid);
+}
+
+@function img($name) {
+    @return "src/images/" + $name;
+}

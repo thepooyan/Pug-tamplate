@@ -1,0 +1,29 @@
+@import './components/source/variables';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    font-family: iransansx;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@import './components/source/Fonts';
+@import './components/comp';
